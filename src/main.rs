@@ -6,7 +6,16 @@ fn main() {
     let lexemes = lexical_analyzer.lexemes.clone();
     let mut indentation_analyzer = new_indentation_analyzer(lexemes);
     indentation_analyzer.init();
-    println!("{:#?}", indentation_analyzer);
+    let lexemes = indentation_analyzer.output.clone();
+    println!("{:#?}", lexemes);
+}
+
+#[derive(Debug, Clone)]
+enum ASTNode {
+    Binding(String, Box::<ASTNode>),
+    Def(Vec::<String>, Vec::<ASTNode>),
+    Copy(Box::<ASTNode>, String, Vec::<ASTNode>),
+    Name(String),
 }
 
 #[derive(Debug, Clone)]

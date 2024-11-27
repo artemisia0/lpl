@@ -1,6 +1,5 @@
 main: /
-	println
+	print
 		'Hello, World!'
-		256
-		sep:', '
+		15
 
